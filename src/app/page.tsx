@@ -39,10 +39,10 @@ export default function Home() {
   return (
     <div>
       <div className="flex items-center w-screen bg-white border-b z-10 sticky top-0 px-5 md:px-44 py-6 justify-between">
-        <b className="text-xl flex-1">Acme Store</b>
+        <b className="md:text-xl flex-1">Acme Store</b>
         <form
           onSubmit={handleSearch}
-          className="w-[300px] md:w-[400px] flex items-center gap-2"
+          className="w-[200px] md:w-[400px] flex items-center gap-2"
         >
           <input
             value={query}
@@ -56,7 +56,7 @@ export default function Home() {
           </button>
         </form>
       </div>
-      <p className="md:ml-[265px] mt-5">
+      <p className="text-center mt-5">
         {isLoading
           ? "Fetching products..."
           : `Showing ${products.length} products`}
