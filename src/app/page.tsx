@@ -1,7 +1,6 @@
 "use client";
 
-import { Search, Star } from "lucide-react";
-import Image from "next/image";
+import { Search } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 import { saveQueryInSearchHistory } from "./lib/utils";
 import { Product } from "./lib/types";

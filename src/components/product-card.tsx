@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Product } from "../lib/types";
 import { Star } from "lucide-react";
+import { Product } from "@/app/lib/types";
 
 export default function ProductCard(props: { product: Product }) {
   return (
