@@ -1,6 +1,7 @@
 "use client";
 
 import { Search, X } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Page() {
@@ -8,9 +9,7 @@ export default function Page() {
   const [searchHistory, setSearchHistory] = useState<string[] | null>(null);
 
   function handleClearSearchHistory() {
-    const confirmClear = confirm(
-      "Are you sure you want to clear search history?",
-    );
+    const confirmClear = confirm("Are you sure you want to clear search history?");
     if (confirmClear) {
       localStorage.removeItem("search_history");
       setSearchHistory(null);
@@ -28,16 +27,24 @@ export default function Page() {
 
   return (
     <div>
-      <div className="flex items-center w-screen bg-white border-b z-10 sticky top-0 px-5 md:px-44 py-6 justify-between">
-        <b className="text-xl flex-1">Search history</b>
-        <button
-          className="flex gap-2 text-red-400 bg-gray-100 p-2 px-3 rounded-full"
-          onClick={handleClearSearchHistory}
-        >
-          Clear history
-          <X />
-        </button>
-      </div>
+      <header className="bg-white border-b z-10 sticky top-0 px-5 py-6">
+        <div className="flex items-center max-w-[1300px] mx-auto bg-white px-5 justify-between">
+          <b className="md:text-xl">
+            <Link href="/">Acme Store</Link>
+          </b>
+          <b className="text-xl">Search history</b>
+          {searchHistory && searchHistory.length > 0 && (
+            <button
+              className="flex gap-2 text-red-400 bg-gray-100 p-2 px-3 rounded-full"
+              onClick={handleClearSearchHistory}
+            >
+              Clear history
+              <X />
+            </button>
+          )}
+        </div>
+      </header>
+
       {!searchHistory && (
         <div className="flex items-center justify-center h-[300px]">
           <div className="flex flex-col items-center gap-4">

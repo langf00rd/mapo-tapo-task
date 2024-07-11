@@ -2,6 +2,7 @@
  * @param searchQuery - search query to be saved in local storage
  */
 export function saveQueryInSearchHistory(searchQuery: string) {
+  if (!searchQuery.trim()) return;
   const existingHistoryData = localStorage.getItem("search_history");
   let existingHistoryDataArray = existingHistoryData
     ? JSON.parse(existingHistoryData)
